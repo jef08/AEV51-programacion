@@ -136,16 +136,13 @@ $impacts = [
     [8, 8]
 ];
 
+//Donde guardará la versión de pomodoroHaters con nucleos urbanos impactados//
+$pomodoroHatersImpacted;
 
+//Donde guaradrá array con todos los impactos en ciudades, tierra, y mar//
+$impactedAreasTotal;
 
-//ESCRIBE AQUÍ TU PROGRAMA PRINCIPAL
-
-
-
-
-//ESCRIBE AQUÍ LA DEFINICIÓN DE LAS FUNCIONES
-
-//función para mostrar mapa//
+//función para mostrar mapa original//
 function showMap($pomodoroHaters) {
     for ($i = 0; $i < count($pomodoroHaters); $i++) {
         echo "<br>";
@@ -156,8 +153,12 @@ function showMap($pomodoroHaters) {
 }
 showMap($pomodoroHaters);
 
-//función para mapa de ciudades afectadas//
+//función para mapa de ciudades afectadas. Un loop del array PomodoroHaters dentro de un loop de Impacts para//
+//poder comprarar el primer elemento en cada array de "impacts" con los indices de PomodoroHaters//
+//y comparar el segundo elemento de los arrays "impacts" con el indice del array correspondiente de pomodoroHaters//
+//Devolver "pomodoroHatersImpacted" para usar en próxima función//
 function showAffectedCities($pomodoroHaters, $impacts) {
+    global $pomodoroHatersImpacted;
     for($i=0; $i<count($impacts); $i++) {
         for($j=0; $j<count($pomodoroHaters); $j++) {
             if ($impacts[$i][0] === $j && $pomodoroHaters[$j][$impacts[$i][1]] === "A") {
@@ -167,9 +168,104 @@ function showAffectedCities($pomodoroHaters, $impacts) {
     }
     echo "<br>";
     showMap($pomodoroHaters);
+    $pomodoroHatersImpacted = $pomodoroHaters;
+    return $pomodoroHatersImpacted;
 }
 showAffectedCities($pomodoroHaters, $impacts);
 
+//funcion para estimar cuanto colírio es necesario y cuantas personas necesitan//
+//Un loop para identifar cuantos "C" existen en el array "pomodoroHatersImpacted//
+//Poner cada "C" en nuevo array y usar count() para hacer los calculos//
+function estimateColirio($pomodoroHatersImpacted) {
+    $numImpactedCities = [];
+    for($i=0; $i<count($pomodoroHatersImpacted); $i++) {
+        for($j=0; $j<count($pomodoroHatersImpacted[$i]); $j++) {
+            if ($pomodoroHatersImpacted[$i][$j] === "C") {
+                array_push($numImpactedCities, "C");
+            }
+        }
+    }
+    echo "<br>" . count($numImpactedCities) * 5000 . " personas han sido afectadas.<br>";
+    echo "Requieren " . ((count($numImpactedCities) * 5000) * 25)/1000 . " litros de colírio.";
+}
+estimateColirio($pomodoroHatersImpacted);
+
+//función para mostrar mapa de areas impactados en ciudades, tierra, y mar//
+//Igual a la función "showAfectedCities" pero utilizando el array "pomodoroHatersImpacted"//
+function showAffectedAreas($pomodoroHatersImpacted, $impacts) {
+    global $impactedAreasTotal;
+    for($i=0; $i<count($impacts); $i++) {
+        for($j=0; $j<count($pomodoroHatersImpacted); $j++) {
+            if ($impacts[$i][0] === $j && $pomodoroHatersImpacted[$j][$impacts[$i][1]] === "0") {
+                array_splice($pomodoroHatersImpacted[$j], $impacts[$i][1], 1, "X");
+            }  else if ($impacts[$i][0] === $j && $pomodoroHatersImpacted[$j][$impacts[$i][1]] === "~") {
+                array_splice($pomodoroHatersImpacted[$j], $impacts[$i][1], 1, "S");
+            }
+        }  
+    }
+    echo "<br>";
+    showMap($pomodoroHatersImpacted);
+    $impactedAreasTotal = $pomodoroHatersImpacted;
+    return $impactedAreasTotal;
+}
+showAffectedAreas($pomodoroHatersImpacted, $impacts);
+
+//Función para estimar el total de los daños//
+function estimateTotalDamages($impactedAreasTotal) {
+    $urbanDamages = [];
+    $nonUrbanoDamages = [];
+    for($i = 0; $i<count($impactedAreasTotal); $i++) {
+        for($j=0; $j<count($impactedAreasTotal[$i]); $j++) {
+            if($impactedAreasTotal[$i][$j] === "C") {
+                array_push($urbanDamages, "C");
+            } else if($impactedAreasTotal[$i][$j] === "X")  {
+                array_push($nonUrbanoDamages, "X");
+            }
+        }
+    }
+    echo "<br> El coste total de los daños: <br>";
+    echo count($urbanDamages) * 200000 + count($nonUrbanoDamages) * 50000 . " Euros.";
+}
+estimateTotalDamages($impactedAreasTotal);
+
+//Arrays para las próximas dos funciones//
+$oceanTotal = [];
+$impactedOceanTotal = [];
+
+//Función para ver total de mar que hay//
+function getSizeOfOcean($pomodoroHaters) {
+    global $oceanTotal;
+    for($i=0; $i<count($pomodoroHaters); $i++) {
+        for($j=0; $j<count($pomodoroHaters[$i]); $j++) {
+            if($pomodoroHaters[$i][$j] === "~") {
+                array_push($oceanTotal, "~");
+            }
+        }
+    }
+    return $oceanTotal;
+}
+getSizeOfOcean($pomodoroHaters);
+
+//Función para ver total de mar afectado//
+function getAffectedOcean($impactedAreasTotal) {
+   global $impactedOceanTotal;
+    for($i=0; $i<count($impactedAreasTotal); $i++) {
+        for($j=0; $j<count($impactedAreasTotal[$i]); $j++) {
+            if($impactedAreasTotal[$i][$j] === "S") {
+                array_push($impactedOceanTotal, "S");
+            }
+        }
+    }
+    return $impactedOceanTotal;
+}
+getAffectedOcean($impactedAreasTotal);
+
+//Imprimir información sobre el mar, bakalao, y ganancias//
+echo "<br><br>Hay un total de " . count($oceanTotal) . "km cuadrados de mar.<br>";
+echo count($impactedOceanTotal) . "km cuadrados del mar han sido afectados. <br>";
+$totalBakalao = round((2000/count($oceanTotal)) * count($impactedOceanTotal));
+echo "Hay " . $totalBakalao . " toneladas de bakalao disponible.";
+echo "<br>Podemos ganar: " . $totalBakalao * 5 . " Euros.";
         ?>
     </body>
 </html>
