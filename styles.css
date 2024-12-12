@@ -1,0 +1,152 @@
+body{
+    background-color: rgb(223, 222, 222);
+}
+
+/* MAPAS */
+.map,
+.affected-map,
+.total-affected-map {
+    min-width: 648px;
+    max-width: 648px;
+    min-height:648px;
+    max-height: 648px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.A,
+.zero,
+.squiggle,
+.C,
+.S,
+.X {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: solid, 1px, rgba(0, 0, 0, 0.411);
+    font-weight: 800;
+}
+
+.A {
+    background-color: rgb(163, 163, 163);
+}
+
+.zero {
+    background-color: rgb(125, 173, 48);
+}
+
+.squiggle {
+    background-color: rgb(42, 133, 194);
+}
+
+.C {
+    background-color: rgb(56, 56, 56);
+    color: white;
+}
+
+.S {
+    background-color: rgb(24, 73, 105);
+    color: white;
+}
+
+.X {
+    background-color: rgb(70, 97, 26);
+    color: white;
+}
+
+/* SERVICIOS EMERGENCIAS */
+.servicios-emergencias {
+    display: grid;
+    justify-content: center;
+    grid-template: 150px 50px 700px 150px/ 50px 700px 700px 50px;
+}
+
+.header-servicios {
+    grid-column: 1/5;
+    grid-row: 1/2;
+    text-align: center;
+    vertical-align: center;
+    padding-top: 50px;
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 2px;
+}
+
+.map-header {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    text-align: center;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.affected-map-header {
+    grid-column: 3/4;
+    grid-row: 2/3;
+    text-align: center;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.map {
+    grid-column: 2/3;
+    grid-row: 3/4;
+}
+
+.affected-map {
+    grid-column: 3/4;
+    grid-row: 3/4;
+}
+
+.colirio {
+    grid-column: 1/5;
+    grid-row: 4/5;
+    text-align: center;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 2px;
+}
+
+/* AGENTES PAGE */
+.agentes-seguro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+}
+
+.header-agentes {
+    padding: 25px;
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 2px;
+}
+
+.header-total-map,
+.damages {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 2px;
+}
+
+/* ONG */
+
+.header-ong {
+    padding: 25px;
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.fish-info {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 2px;
+    line-height: 30px;
+    text-align: center;
+}
