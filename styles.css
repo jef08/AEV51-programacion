@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(223, 222, 222);
+    background-color: rgb(237, 243, 248);
 }
 
 /* MAPAS */
@@ -33,36 +33,52 @@ body{
 
 .A {
     background-color: rgb(163, 163, 163);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
 }
 
 .zero {
     background-color: rgb(125, 173, 48);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
 }
 
 .squiggle {
     background-color: rgb(42, 133, 194);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
 }
 
 .C {
-    background-color: rgb(56, 56, 56);
+    background-color: rgb(75, 75, 75);
     color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
 }
 
 .S {
     background-color: rgb(24, 73, 105);
     color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
 }
 
 .X {
     background-color: rgb(70, 97, 26);
     color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
 }
 
 /* SERVICIOS EMERGENCIAS */
 .servicios-emergencias {
+    height: 100vh;
+    margin-left:auto;
+    margin-right: auto;
     display: grid;
     justify-content: center;
-    grid-template: 150px 50px 700px 150px/ 50px 700px 700px 50px;
+    grid-template: 150px 50px 700px 150px 50px/ 50px 700px 700px 50px;
+    overflow:auto;
 }
 
 .header-servicios {
@@ -72,7 +88,8 @@ body{
     vertical-align: center;
     padding-top: 50px;
     font-size: 35px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     letter-spacing: 2px;
 }
 
@@ -81,14 +98,14 @@ body{
     grid-row: 2/3;
     text-align: center;
     font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .affected-map-header {
     grid-column: 3/4;
     grid-row: 2/3;
     text-align: center;
     font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .map {
@@ -106,8 +123,17 @@ body{
     grid-row: 4/5;
     text-align: center;
     font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     letter-spacing: 2px;
+}
+
+.refresh-services-div {
+    grid-column: 1/5;
+    grid-row: 5/6;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* AGENTES PAGE */
@@ -120,17 +146,29 @@ body{
 }
 
 .header-agentes {
-    padding: 25px;
+    padding: 35px;
     font-size: 35px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.header-total-map {
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     letter-spacing: 2px;
 }
 
-.header-total-map,
 .damages {
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     letter-spacing: 2px;
+    padding: 25px;
+}
+
+.refresh-agentes {
+    padding: 50px;
+    text-align: center;
 }
 
 /* ONG */
@@ -138,15 +176,94 @@ body{
 .header-ong {
     padding: 25px;
     font-size: 35px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     letter-spacing: 2px;
     text-align: center;
+    font-weight: 600;
 }
 
 .fish-info {
     font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     letter-spacing: 2px;
     line-height: 30px;
     text-align: center;
 }
+
+.fish {
+    display: block;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.refresh-ong-div {
+    padding: 50px;
+    text-align: center;
+}
+
+/* BUTTONS + INTRO PAGE*/
+
+.bienvenido {
+    text-align: center;
+    padding: 50px;
+    font-size: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.eres {
+    text-align: center;
+    padding: 35px;
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 2px;
+}
+
+.intro-buttons {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    gap: 50px;
+}
+
+.servicios-bttn,
+.seguro-bttn,
+.ong-bttn {
+    height: 100px;
+    width: 250px;
+    font-size: larger;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 2px;
+    background-color: rgb(96, 171, 201);
+    border-radius: 6px;
+    border-style: none;
+}
+
+.refresh-bttn {
+    height: 50px;
+    width: 75px;
+    background-color: rgb(96, 171, 201);
+    border-radius: 6px;
+    border-style: none;
+}
+
+.servicios-bttn:hover,
+.seguro-bttn:hover,
+.ong-bttn:hover,
+.refresh-bttn:hover {
+    cursor: pointer;
+    background-color: rgba(96, 171, 201, 0.445);
+    box-shadow: 0 8px 10px 0 rgb(70, 126, 148);
+}
+
+.servicios-bttn:active,
+.seguro-bttn:active,
+.ong-bttn:active,
+.refresh-bttn:active {
+    transform: translateY(6px)
+}
+

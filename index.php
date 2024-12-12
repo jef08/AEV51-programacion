@@ -4,8 +4,19 @@
         <meta charset = "utf-8">
         <title>AEV51</title>
         <link rel = "stylesheet" href = "styles.css">
+        <script src = "script.js" defer></script>
     </head>
     <body>
+
+    <div class = "intro-page">
+        <div class = "bienvenido">Bienvenido!</div>
+        <div class = "eres">Eres...</div>
+        <div class = "intro-buttons">
+            <button class = "servicios-bttn">Servicios de Emergencia</button>
+            <button class = "seguro-bttn">Agente de Seguro</button>
+            <button class = "ong-bttn">Cocineros Vascos Sin Fronteras</button>
+        </div>
+    </div>
         <?php
 
 $pomodoroHaters = [
@@ -211,12 +222,17 @@ $impacts = [
                     }
                 }
                 echo "<br><strong>" . count($numImpactedCities) * 5000 . "</strong> personas han sido afectadas.<br>";
-                echo "Requieren <strong>" . ((count($numImpactedCities) * 5000) * 25)/1000 . "</strong> litros de colírio.";
+                echo "Requiere <strong>" . ((count($numImpactedCities) * 5000) * 25)/1000 . "</strong> litros de colírio.";
             }
             estimateColirio($pomodoroHatersImpacted);
             ?>
+            
+        </div>
+        <div class = "refresh-services-div">
+            <button class = "refresh-bttn" onclick = "window.location.reload()"><img src = refresh.svg height = 25px width = 25px></button>
         </div>
 </div>
+
 
 <div class = "agentes-seguro">
     <div class = "header-agentes">Información para agentes de seguro</div>
@@ -268,10 +284,15 @@ $impacts = [
         estimateTotalDamages($impactedAreasTotal);
         ?>
     </div>
+    <div class = "refresh-agentes">
+        <button class = "refresh-bttn" onclick = "window.location.reload()"><img src = refresh.svg height = 25px width = 25px></button>
+    </div>
 </div>
+
 
 <div class = "ong">
     <div class = "header-ong">Información para cocineros vascos</div>
+    <img class = "fish" src="fish.svg" height="100px" width="auto">
     <?php
         //Arrays para las próximas dos funciones//
         $oceanTotal = [];
@@ -315,6 +336,10 @@ $impacts = [
             echo "Hay <strong>" . $totalBakalao . "</strong> toneladas de bakalao disponible.";
             echo "<br>Podemos ganar: <strong>" . $totalBakalao * 5 . "</strong> Euros.";
         ?>
+    </div>
+    
+    <div class = "refresh-ong-div">
+        <button class = "refresh-bttn" onclick = "window.location.reload()"><img src = refresh.svg height = 25px width = 25px></button>
     </div>
 </div>
 </body>

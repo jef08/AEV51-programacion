@@ -184,7 +184,7 @@ function estimateColirio($pomodoroHatersImpacted) {
         }
     }
     echo "<br><br>" . count($numImpactedCities) * 5000 . " personas han sido afectadas.<br>";
-    echo "Requieren " . ((count($numImpactedCities) * 5000) * 25)/1000 . " litros de colírio.";
+    echo "Requiere " . ((count($numImpactedCities) * 5000) * 25)/1000 . " litros de colírio.";
 }
 estimateColirio($pomodoroHatersImpacted);
 
