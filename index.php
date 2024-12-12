@@ -9,7 +9,7 @@
     <body>
 
     <div class = "intro-page">
-        <div class = "bienvenido">Bienvenido!</div>
+        <div class = "bienvenido">¡Bienvenido!</div>
         <div class = "eres">Eres...</div>
         <div class = "intro-buttons">
             <button class = "servicios-bttn">Servicios de Emergencia</button>

@@ -72,7 +72,7 @@ body{
 
 /* SERVICIOS EMERGENCIAS */
 .servicios-emergencias {
-    height: 100vh;
+    height: 90vh;
     margin-left:auto;
     margin-right: auto;
     display: grid;
